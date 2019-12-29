@@ -2,7 +2,7 @@
 	displayBlock="true"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-	<Button text="sayHello" press=".onSayHello"/>
+	<Button text="i18n>showHelloButtonText" press=".onSayHello"/>
 	<Input 
 		description = "Hello  {name}"
 		valueLiveUpdate = "true"

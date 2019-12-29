@@ -14,14 +14,14 @@
 			data-sap-ui-resourceroots='{
 				"com.myorg.myUI5App": "./"
 			}'
-			data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+			data-sap-ui-oninit="module:com/myorg/myUI5App/index",
 			data-sap-ui-async="true"
 			data-sap-ui-frameOptions="trusted">
 		</script>
 	</head>
 
-	<body class="sapUiBody">
-		<div data-sap-ui-component data-name="com.myorg.myUI5App" data-id="container" data-settings='{"id" : "myUI5App"}'></div>
+	<body class="sapUiBody" id="content">
+		<!-- <div data-sap-ui-component data-name="com.myorg.myUI5App" data-id="container" data-settings='{"id" : "myUI5App"}'></div> -->
 	</body>
 
 </html>

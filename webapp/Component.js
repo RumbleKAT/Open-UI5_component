@@ -1,14 +1,20 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"com/myorg/myUI5App/model/models"
-], function(UIComponent, Device, models) {
+	"sap/ui/model/json/JSONModel",
+	"sap/ui/model/resource/ResourceModel"
+], function(UIComponent, Device, JSONModel, ResourceModel) {
 	"use strict";
 
 	return UIComponent.extend("com.myorg.myUI5App.Component", {
 
 		metadata: {
-			manifest: "json"
+			rootView : {
+				"viewName": "com.myorg.myUI5App.view.MainView",
+				"type" : "XML",
+				"async" : true,
+				"id" : "app"
+			}//component 단위로 개발 root view가 있고 다른 view를 불러오는 구조로 되어 있음 
 		},
 
 		/**
@@ -20,11 +26,20 @@ sap.ui.define([
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
 
-			// enable routing
-			this.getRouter().initialize();
+			var oData = {
+				receipent  : {
+					name : "world"
+				}
+			};
 
-			// set the device model
-			this.setModel(models.createDeviceModel(), "device");
+			var oModel = new JSONModel(oData);
+			this.setModel(oModel);
+
+			var i18nModel = new ResourceModel({
+				bundleName : "com.myorg.myUI5App.i18n.i18n"
+			});
+
+			this.setModel(i18nModel,"i18n");
 		}
 	});
 });
