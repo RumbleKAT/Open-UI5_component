@@ -28,12 +28,5 @@ sap.ui.define([
     //   this.getView().setModel(i18nModel, " i18n");
       
     // },
-    onSayHello : function(e){
-      var oBundle = this.getView().getModel("i18n").getResourceBundle();
-      var sRecipient = this.getView().getModel().getProperty("/recipient/name");
-      var sMsg = oBundle.getText("helloMsg", [sRecipient]);
-      // show message
-      MessageToast.show(sMsg);    
-    }
   });
 });
