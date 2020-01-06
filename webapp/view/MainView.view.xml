@@ -6,8 +6,12 @@
         <App class="myAppDemoWT">
             <pages>
                 <Page title="{i18n>homePageTitle}">
+                    <headerContent>
+                        <Button icon="sap-icon://hello-world" press=".onOpenDialog"/>
+                    </headerContent>
                     <content>
                         <mvc:XMLView viewName="com.myorg.myUI5App.view.HelloPanel"/>
+                        <mvc:XMLView viewName="com.myorg.myUI5App.view.InvoiceList"/>
                     </content>
                 </Page>
             </pages>

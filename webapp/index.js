@@ -2,7 +2,7 @@ sap.ui.define([
     "sap/ui/core/ComponentContainer"
 ],function(ComponentContainer){
     "use strict"
-    alert("UI5 is ready");
+    console.log("UI5 is ready");
 
     new ComponentContainer({
         name : "com.myorg.myUI5App",

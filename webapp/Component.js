@@ -9,14 +9,18 @@ sap.ui.define([
 
 	return UIComponent.extend("com.myorg.myUI5App.Component", {
 
-		metadata: {
-			rootView : {
-				"viewName": "com.myorg.myUI5App.view.MainView",
-				"type" : "XML",
-				"async" : true,
-				"id" : "app"
-			}//component 단위로 개발 root view가 있고 다른 view를 불러오는 구조로 되어 있음 
+		// metadata: {
+		// 	rootView : {
+		// 		"viewName": "com.myorg.myUI5App.view.MainView",
+		// 		"type" : "XML",
+		// 		"async" : true,
+		// 		"id" : "app"
+		// 	}//component 단위로 개발 root view가 있고 다른 view를 불러오는 구조로 되어 있음 
+		// },
+		metadata : {
+			manifest: "json"//manifest에서 연결 정보를 가져옴 
 		},
+
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
@@ -34,7 +38,7 @@ sap.ui.define([
 			};
 
 			var oModel = new JSONModel(oData);
-			this.setModel(oModel);
+			this.setModel(oModel,"oDatas");
 
 			var i18nModel = new ResourceModel({
 				bundleName : "com.myorg.myUI5App.i18n.i18n"
