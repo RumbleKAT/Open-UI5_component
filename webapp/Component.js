@@ -47,6 +47,15 @@ sap.ui.define([
 			this.setModel(i18nModel,"i18n");
 
 			this._helloDialog = new HelloDialog(this.getRootControl());
+
+			this.getRouter().initialize(); //root view를 기준으로 target을 찾음
+
+			// 새로운 페이지 생성 방법
+			// 타겟에 view Name view Id view path 정보 입력
+			
+			// manifest에 루트 view id 가 제대로 설정되어 있는지 확인한다. 제대로 설정이 안되어 있으면 getRouter() 메서드가 제기능을 하지 못함
+			// Cannot read property 'setHash' of undefined
+		
 		},
 		exit : function(){ 
 			//컴포넌트 단으로 메서드 생성부분

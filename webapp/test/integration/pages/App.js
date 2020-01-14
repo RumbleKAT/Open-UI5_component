@@ -1,34 +1,35 @@
 sap.ui.require([
 	"sap/ui/test/Opa5",
-	"sap/ui/test/matchers/AggregationLengthEquals"
-], function (Opa5, AggregationLengthEquals) {
+	"sap/ui/test/actions/Press"
+], function (Opa5, Press) {
 	"use strict";
 
-	var sViewName = "com.myorg.myUI5App.view.MainView";
-	var sAppId = "idAppControl";
+	var sViewName = "com.myorg.myUI5App.view.HelloPanel";
 
 	Opa5.createPageObjects({
 		onTheAppPage: {
-
-			assertions: {
-
-				iShouldSeePageCount: function(iItemCount) {
-					return this.waitFor({
-						id: sAppId,
-						viewName: sViewName,
-						matchers: [new AggregationLengthEquals({
-							name: "pages",
-							length: iItemCount
-						})],
-						success: function() {
-							Opa5.assert.ok(true, "The app contains one page");
-						},
-						errorMessage: "App does not have expected number of pages '" + iItemCount + "'."
-					});
+			actions: {
+                iPressTheSayHelloWithDialogButton: function () {
+                    return this.waitFor({
+                        id: "helloDialogButton",
+                        viewName: sViewName,
+                        actions: new Press(),
+                        errorMessage: "Did not find the 'Say Hello With Dialog' button on the HelloPanel view"
+                    });
 				}
+			},
+			assertions: {
+                iShouldSeeTheHelloDialog: function () {
+                    return this.waitFor({
+                        controlType: "sap.m.Dialog",
+                        success: function () {
+                            // we set the view busy, so we need to query the parent of the app
+                            Opa5.assert.ok(true, "The dialog is open");
+                        },
+                        errorMessage: "Did not find the dialog control"
+                    });
+                }
 			}
-
 		}
-	});
-
+	})	
 });

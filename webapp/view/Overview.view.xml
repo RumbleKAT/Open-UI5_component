@@ -1,9 +1,9 @@
- <mvc:View controllerName="com.myorg.myUI5App.controller.MainView"
+ <mvc:View controllerName="com.myorg.myUI5App.controller.Overview"
 	displayBlock="true"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
 	 <Shell>
-        <App class="myAppDemoWT">
+        <App class="myAppDemoWT" id="app">
             <pages>
                 <Page title="{i18n>homePageTitle}">
                     <headerContent>

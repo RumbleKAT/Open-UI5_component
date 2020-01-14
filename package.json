@@ -10,9 +10,10 @@
                 "test": "npm run lint && npm run karma",
                 "karma-ci": "karma start karma-ci.conf.js",
                 "karma": "rimraf coverage && npm run karma-ci",
+                "mock": "ui5 serve --open /test/mockServer.html",
                 "lint": "eslint webapp",
                 "build:ui": "ui5 build --a ",
-                "proxy": "node proxy.js"
+                "proxy": "node proxy"
         },
         "dependencies": {
                 "@openui5/sap.m": "^1.73.1",

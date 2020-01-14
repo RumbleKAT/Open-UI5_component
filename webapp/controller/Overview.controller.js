@@ -4,7 +4,7 @@ sap.ui.define([
 ], function(Controller, MessageToast) {
   "use strict";
 
-  return Controller.extend("com.myorg.myUI5App.controller.MainView", {
+  return Controller.extend("com.myorg.myUI5App.controller.Overview", {
     // onInit : function(oEvent){
     //   var oData = {
     //     receipent : {
@@ -29,7 +29,7 @@ sap.ui.define([
       
     // },
     onInit : function(){
-      
+      console.log("Overview init");
     },
     onOpenDialog : function () {
       this.getOwnerComponent().openHelloDialog();

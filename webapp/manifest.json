@@ -40,7 +40,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "com.myorg.myUI5App.view.MainView",
+			"viewName": "com.myorg.myUI5App.view.Overview",
 			"type": "XML",
 			"async": true,
 			"id": "app"
@@ -82,18 +82,38 @@
 				"controlAggregation": "pages",
 				"async": true
 			},
-			"routes": [{
-				"name": "RouteMainView",
-				"pattern": "RouteMainView",
-				"target": ["TargetMainView"]
-			}],
-			"targets": {
-				"TargetMainView": {
-					"viewType": "XML",
-					"viewLevel": 1,
-					"viewName": "MainView"
+			"routes": [
+				{
+				  "pattern": "",
+				  "name": "overview",
+				  "target": "overview"
+				},
+				{
+				  "pattern": "detail/{invoicePath}",
+				  "name": "detail",
+				  "target": "detail"
+				},
+				{
+					"pattern" : "myView",
+					"name" : "myViewList",
+					"target" : "myView"
 				}
-			}
+			],
+			  "targets": {
+				"overview": {
+				  "viewId": "overview",
+				  "viewName": "Overview"
+				},
+				"detail": {
+				  "viewId": "detail",
+				  "viewName": "Detail"
+				},
+				"myView" : {
+					"viewId" : "myView",
+					"viewPath": "com.myorg.myUI5App.view.MyView",
+					"viewName" : "MyView"
+				}
+			  }
 		}
 	}
 }
